@@ -19,13 +19,14 @@ public class Mult {
     
     /**
      *
-     * @param a
-     * @param b
+     * @param a must be positive
+     * @param b must be positive && nonzero
      * @return f(a,b);
      * @throws IllegalArgumentException if (a < 1 || b < 1)
      */
-    public static int mult(int a, int b) {
-        if (a < 1 || b < 1) throw new IllegalArgumentException();
+    public static int mult(int a, int b) throws IllegalArgumentException {
+        if (a < 1) throw new IllegalArgumentException("IllegalArgumentException: " + "value a is smaller than 1 " + "(" + a + ")");
+        if (b < 1) throw new IllegalArgumentException("IllegalArgumentException: " + "value b is smaller than 1 " + "(" + b + ")");
         return f(a, b);
     }
 }
