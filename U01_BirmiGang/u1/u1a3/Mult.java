@@ -15,7 +15,7 @@ public class Mult {
      * @param a
      * @param b
      * @return f(a,b);
-     * @throws IllegalArgumentException "e"
+     * @throws IllegalArgumentException
      */
     public static int mult(int a, int b) {
         if (a < 1 || b < 1) throw new IllegalArgumentException();
