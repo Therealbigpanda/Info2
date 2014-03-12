@@ -26,7 +26,7 @@ public class RandomArray {
      * @return a list of the values, separated by a comma and a space, and enclosed in squared brackets.
      */
     public String toString()
-    { :-)
+    {
     }
 
     /**
