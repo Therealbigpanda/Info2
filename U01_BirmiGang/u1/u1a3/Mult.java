@@ -22,7 +22,7 @@ public class Mult {
      * @param a must be positive
      * @param b must be positive && nonzero
      * @return f(a,b);
-     * @throws IllegalArgumentException if (a < 1 || b < 1) commit
+     * @throws IllegalArgumentException if (a < 1 || b < 1)
      */
     public static int mult(int a, int b) throws IllegalArgumentException {
         if (a < 1) throw new IllegalArgumentException("IllegalArgumentException: " + "value a is smaller than 1 " + "(" + a + ")");
