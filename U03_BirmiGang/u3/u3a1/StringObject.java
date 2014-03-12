@@ -11,7 +11,7 @@ public class StringObject {
         StringObject ref = new StringObject();
         String mystring = "Give ";
         StringBuffer mybuffer = new StringBuffer("Give ");
-        // Markierung 11
+        // Markierung 1
 
         mystring = mystring + "me six ";
         mybuffer.append("me six ");
