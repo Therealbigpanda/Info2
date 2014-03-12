@@ -19,7 +19,7 @@ public class StringObject {
 
         ref.addString(mystring, "lines");
         mybuffer.append("lines");
-        // Markierung 42
+        // Markierung 4
 
         System.out.println(mystring);
         System.out.println(mybuffer);
