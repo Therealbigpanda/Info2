@@ -1,5 +1,7 @@
 package u2a2;
 
+import java.util.Random;
+
 /**
  * An array with random values.
  */
@@ -16,6 +18,11 @@ public class RandomArray {
      */
     public RandomArray(int length)
     {
+        numbers = new int[length];
+        for (int i = 0; i<length; i++){
+        Random rnd = new Random();            
+            numbers[i]= rnd.nextInt(101);
+        }
     }
 
     /**
@@ -25,8 +32,19 @@ public class RandomArray {
      * 
      * @return a list of the values, separated by a comma and a space, and enclosed in squared brackets.
      */
+    @Override
     public String toString()
     {
+        String returnString = "[";
+        for (int i=0; i<numbers.length-1; i++){
+            returnString = returnString + numbers[i] + ", ";
+        }
+        if(numbers.length==0){
+            returnString = returnString +"]";
+        }else{
+            returnString = returnString + numbers[numbers.length-1]+"]";
+        }
+        return returnString;
     }
 
     /**
@@ -38,6 +56,21 @@ public class RandomArray {
      */
     private void recursiveSort(int until)
     {
+        if (until != 0) {
+
+            recursiveSort(until-1);
+            int highestUnsortedValueIndex = until-1;
+            for(int i = until-1; i<=numbers.length-1;i++){
+                if (numbers[i]>numbers[highestUnsortedValueIndex]) highestUnsortedValueIndex = i;
+            }
+
+            if(until-1 != highestUnsortedValueIndex){
+                
+                numbers[until-1] = numbers[until-1] + numbers[highestUnsortedValueIndex];
+                numbers[highestUnsortedValueIndex] = numbers[until-1]-numbers[highestUnsortedValueIndex];
+                numbers[until-1] = numbers[until-1]-numbers[highestUnsortedValueIndex];
+            }
+        }
     }
 
     /**
@@ -45,6 +78,8 @@ public class RandomArray {
      */
     public void sort()
     {
-    	recursiveSort(numbers.length);        
+                  System.out.println("1) "+this.toString());
+    	recursiveSort(numbers.length);
+                  System.out.println("2) "+this.toString());
     }
 }
