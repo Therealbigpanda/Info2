@@ -24,11 +24,13 @@ public class HumanGangster implements reversi.ReversiPlayer {
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        for (int row=1; row<gb.getSize(); row ++){
-            for (int column=1; column<gb.getSize(); column ++){
+        
+        for (int row=1; row<=gb.getSize(); row ++){
+            for (int column=1; column<=gb.getSize(); column ++){
                 if(gb.checkMove(myColor, new Coordinates(row, column))) return new Coordinates(row, column);
             }
         }
+        
         return null;
     }
 
