@@ -1,0 +1,53 @@
+id=TestGame time=1394818998893 new game
+id=TestGame time=1394818998894 red=BirmiGangster.HumanGangster green=BirmiGangster.HumanGangster
+id=TestGame time=1394820009762 new game
+id=TestGame time=1394820009774 red=BirmiGangster.HumanGangster green=BirmiGangster.HumanGangster
+id=TestGame time=1394820011283 initialized
+id=TestGame time=1394820011818 Redmove=6,3
+id=TestGame time=1394820014179 Greenmove=3,3
+id=TestGame time=1394820016544 Redmove=3,4
+id=TestGame time=1394820018927 Greenmove=3,5
+id=TestGame time=1394820021298 Redmove=2,2
+id=TestGame time=1394820023665 Greenmove=1,1
+id=TestGame time=1394820026042 Redmove=2,4
+id=TestGame time=1394820028434 Greenmove=1,3
+id=TestGame time=1394820030802 Redmove=1,4
+id=TestGame time=1394820033171 Greenmove=1,5
+id=TestGame time=1394820035535 Redmove=2,6
+id=TestGame time=1394820037904 Greenmove=2,3
+id=TestGame time=1394820040285 Redmove=3,2
+id=TestGame time=1394820042653 Greenmove=2,5
+id=TestGame time=1394820045018 Redmove=1,2
+id=TestGame time=1394820047389 Greenmove=1,7
+id=TestGame time=1394820049751 Redmove=1,6
+id=TestGame time=1394820052121 Greenmove=2,1
+id=TestGame time=1394820054491 Redmove=2,7
+id=TestGame time=1394820056849 Greenmove=3,1
+id=TestGame time=1394820059215 Redmove=3,6
+id=TestGame time=1394820061574 Greenmove=3,7
+id=TestGame time=1394820063944 Redmove=4,1
+id=TestGame time=1394820066313 Greenmove=4,2
+id=TestGame time=1394820068679 Redmove=4,3
+id=TestGame time=1394820071047 Greenmove=5,1
+id=TestGame time=1394820073419 Redmove=4,6
+id=TestGame time=1394820075789 Greenmove=4,7
+id=TestGame time=1394820078159 Redmove=5,2
+id=TestGame time=1394820080519 Greenmove=5,3
+id=TestGame time=1394820082876 Redmove=5,6
+id=TestGame time=1394820085245 Greenmove=5,7
+id=TestGame time=1394820087615 Redmove=6,1
+id=TestGame time=1394820090025 Greenmove=6,2
+id=TestGame time=1394820092382 Redmove=6,4
+id=TestGame time=1394820094745 Greenmove=6,5
+id=TestGame time=1394820097111 Redmove=6,6
+id=TestGame time=1394820099479 Greenmove=7,1
+id=TestGame time=1394820101840 Redmove=7,2
+id=TestGame time=1394820104209 Greenmove=6,7
+id=TestGame time=1394820106582 Redmove=7,3
+id=TestGame time=1394820108937 Greenmove=7,4
+id=TestGame time=1394820111307 Redmove=7,5
+id=TestGame time=1394820113671 Greenmove=7,6
+id=TestGame time=1394820116037 Redmove=7,7
+id=TestGame time=1394820118404 Greenmove=null
+id=TestGame time=1394820118405 Green makes illegal move
+id=TestGame time=1394820168702 quit button pressed
