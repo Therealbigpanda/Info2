@@ -9,7 +9,7 @@ public class RandomArray {
 	/**
 	 * internal storage of the numbers
 	 */
-    private  int numbers[];
+    private int numbers[];
 
     /**
      * Create a new array with random values between 0 (inclusive) and 1000 (exclusive).
