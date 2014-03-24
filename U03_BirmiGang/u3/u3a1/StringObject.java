@@ -5,6 +5,7 @@ public class StringObject {
     void addString(String s1, String s2) {
         s1 = s1 + s2;
         // Markierung 3
+        System.out.println(s1); // Test
     }
 
     public static void main(String[] args) {
