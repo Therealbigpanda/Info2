@@ -2,6 +2,7 @@ package u3a3;
 
 public class KD {
     public static String tree;
+    public int baumlänge = 0;
     /**
      * Parse a "Klammerdarstellung" (KD) of a tree.
      * 
@@ -22,7 +23,6 @@ public class KD {
     }
 
     public static boolean baum(int index) throws ParseException{
-        
         if(tree.charAt(index) == '-')
         {
             if(tree.length() > index+1 && tree.charAt(index+1) == '(')
