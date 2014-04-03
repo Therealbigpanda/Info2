@@ -9,7 +9,7 @@ public class KD {
     /**
      * global string ref to access param of parse(String kd)
      */
-    public static String tree;
+    private static String tree;
 
     /**
      * Parse a "Klammerdarstellung" (KD) of a tree.
@@ -36,7 +36,7 @@ public class KD {
      * @return number of chars in tree (node + '(' + number of chars in subtree + ')')
      * @throws ParseException if there is an error in the tree format
      */
-    public static int tree(int index) throws ParseException
+    private static int tree(int index) throws ParseException
     {
         if(tree.charAt(index) == '-') // if tree is empty return 1
         {	
@@ -47,12 +47,15 @@ public class KD {
         
         if(!Character.isUpperCase(tree.charAt(index))) throw new ParseException("illegal node", index);
         
-        if(tree.length() > index+1 && tree.charAt(index+1) == '(')
+        if((tree.length() > index+1) && (tree.charAt(index+1) == '('))
         {
             if(tree.length() < index+4) throw new ParseException("treeing ends abruptly", index);
             int subelements = next(index+2);
             if(tree.charAt(subelements+index+2) == ')')
+            {
+                if(index == 0 && tree.length() > subelements+3) throw new ParseException("garbage", index);
                 return 3 + subelements;
+            }
             else throw new ParseException("no closing braces", index);
         }
         return 1;
@@ -64,16 +67,13 @@ public class KD {
      * @return
      * @throws ParseException
      */
-    public static int next(int index) throws ParseException
+    private static int next(int index) throws ParseException
     {
         int subelements = tree(index);
         while(tree.charAt(index+subelements) == ',')
         {
-            subelements += tree(index+subelements+1) + 1;            
+            subelements = (subelements + tree(index+subelements+1) + 1);            
         }
         return subelements;
     }
 }
-
-// A , B , C
-// 0 1 2 3 4
