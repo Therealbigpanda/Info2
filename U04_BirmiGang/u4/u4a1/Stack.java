@@ -16,15 +16,31 @@ public class Stack {
 	 */
 	public Stack(int capacity)
 	{
+            size = 0;
+            buffer = new int[capacity];
 	}
 
-    /**
+        /**
 	 * Converts stack to a string representation.
 	 * 
 	 * @return A ", "-separated list of the numbers, enclosed in square brackets. Bottom numbers come first. 
 	 */
+        @Override
 	public String toString() 
 	{
+            StringBuilder strb = new StringBuilder();
+            
+            strb.append('[');
+            for(int i = 0; i < size; i++)
+            {
+                strb.append(buffer[i]);
+                strb.append(", ");
+            }
+            if(strb.length() > 1)
+            strb.replace(strb.length()-2, strb.length(), "]");
+            else strb.append(']');
+            
+            return strb.toString();
 	}
 	
 	/**
@@ -34,6 +50,14 @@ public class Stack {
 	 */
 	private void grow()
 	{
+            if(size < 1) buffer = new int[1];
+            else
+            {
+                // int[] tempref = Arrays.copyOf(buffer, size*2);
+                int[] tempref = new int[size*2]; 
+                for (int i : buffer) tempref[i] = buffer[i];
+                buffer = tempref;
+            }
 	}
 	
 	/**
@@ -45,6 +69,8 @@ public class Stack {
 	 */
 	public void push(int number)
 	{
+            if(size > buffer.length-1) grow();
+            buffer[size++] = number;
 	}
 	
 	/**
@@ -55,6 +81,8 @@ public class Stack {
 	 */
 	public int pop() throws EmptyStackException 
 	{
+            if(size <= 0) throw new EmptyStackException();
+            return buffer[--size];
 	}
 	
 	/**
@@ -65,6 +93,8 @@ public class Stack {
 	 */
 	public int peek() throws EmptyStackException
 	{
+            if(size <= 0) throw new EmptyStackException();
+            return buffer[size-1];
 	}
 
 	/**
@@ -73,7 +103,8 @@ public class Stack {
 	 * @return true if and only if this stack contains no items; false otherwise.
 	 */
 	public boolean empty() 
-    {
+        {
+            return size < 1;
 	}
 	
 	/**
@@ -82,7 +113,8 @@ public class Stack {
 	 * @return the current number of items on this stack
 	 */
 	public int size() 
-    {
+        {
+            return size;
 	}
 	
 	/**
@@ -91,6 +123,7 @@ public class Stack {
 	 * @return the maximum number of items this stack can hold without having to grow
 	 */
 	public int capacity() 
-    {
+        {
+            return buffer.length;
 	}
 }
