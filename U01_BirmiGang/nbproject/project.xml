@@ -6,7 +6,7 @@
             <name>U01_BirmiGang</name>
             <source-roots/>
             <test-roots>
-                <root id="test.u1.dir"/>
+                <root id="test.u1.dir" name="Test Packages"/>
             </test-roots>
         </data>
     </configuration>
