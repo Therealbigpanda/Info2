@@ -20,8 +20,4 @@ public class List {
 		this.value = value;
 		this.next = next;
 	}	
-
-    public List() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-}
