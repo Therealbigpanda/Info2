@@ -1,5 +1,6 @@
 package u4a1;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 /**
@@ -53,10 +54,7 @@ public class Stack {
             if(size < 1) buffer = new int[1];
             else
             {
-                // int[] tempref = Arrays.copyOf(buffer, size*2);
-                int[] tempref = new int[size*2]; 
-                for (int i : buffer) tempref[i] = buffer[i];
-                buffer = tempref;
+                buffer = Arrays.copyOf(buffer, size*2);
             }
 	}
 	

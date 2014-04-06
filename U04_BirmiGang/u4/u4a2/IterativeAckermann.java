@@ -10,7 +10,21 @@ public class IterativeAckermann {
 	 * @param m parameter m
 	 * @return Ackermann(n,m)
 	 */
-	public int A(int n, int m)
-	{
+	public int A(int n, int m) {
+            Stack stack = new Stack(1);
+            while(stack.size() > 0 || n != 0) {
+                if (n == 0) {
+                    ++m;
+                    n = stack.pop();
+                }
+                else if (m == 0) {
+                    --n;
+                    ++m;
+                } else {
+                    stack.push(n-1);
+                    --m;
+                }
+            }
+            return ++m;
 	}
 }
