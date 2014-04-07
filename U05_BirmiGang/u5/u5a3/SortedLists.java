@@ -19,12 +19,11 @@ public class SortedLists {
      * @return
      */
     public static List insertSorted(List list, int value) {
-        if (list == null) return new List(value, list);
+        if (list == null) return new List(value, null);
         if (list.value > value) return new List(value, list);
-        else { 
-            list.next = insertSorted(list.next, value);
-            return list;
-        }
+
+        list.next = insertSorted(list.next, value);
+        return list;
     }
 
     /**

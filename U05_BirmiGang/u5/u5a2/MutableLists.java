@@ -10,7 +10,7 @@ import u5a1.Lists;
  */
 public class MutableLists {
     /**
-     * Appends a value at the end of a list.
+     * Appends a list element at the end of a list.
      * 
      * @param list the list in question; may not be empty
      * @param value the value which is appended
