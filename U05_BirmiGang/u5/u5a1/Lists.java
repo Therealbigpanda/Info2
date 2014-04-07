@@ -19,7 +19,7 @@ public class Lists {
         
         if (list == null) return "null";
 
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append(list.value).append(", ").append(toString(list.next));
         return buf.toString();
     }
@@ -93,9 +93,7 @@ public class Lists {
      * @throws IndexOutOfBoundsException if the list is smaller than index
      */
     public static int valueAt(List list, int index) throws IndexOutOfBoundsException {
-        if (list == null) throw new IndexOutOfBoundsException();
-        if (index == 0) return list.value;
-        return valueAt(list.next, index-1);  
+        return sublist(list, index).value;
     }
 
     /**
