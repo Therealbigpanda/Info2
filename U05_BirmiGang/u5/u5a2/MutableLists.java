@@ -3,6 +3,11 @@ package u5a2;
 import list.List;
 import u5a1.Lists;
 
+/**
+ * Contains basic tools to manipulate lists from u5a1.Lists
+ *
+ * @author Andrea-Pascal Willi
+ */
 public class MutableLists {
     /**
      * Appends a value at the end of a list.

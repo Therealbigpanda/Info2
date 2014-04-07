@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 import list.List;
 
 /**
- * Contains all the tools to manipulate linked lists with int values
+ * Contains basic tools to manipulate a linked list element from list.List
  *
  * @author Andrea-Pascal Willi
  */

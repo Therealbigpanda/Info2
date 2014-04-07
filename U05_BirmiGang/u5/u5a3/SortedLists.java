@@ -2,6 +2,11 @@ package u5a3;
 
 import list.List;
 
+/**
+ * Contains basic tools to sort lists with linked list elements from list.List.
+ *
+ * @author Andrea-Pacal Willi
+ */
 public class SortedLists {
     /**
      * Inserts a value into a sorted list so that the resulting list is still sorted.
