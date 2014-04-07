@@ -25,7 +25,7 @@ public class Lists {
     }
 
     /**
-     * Adds a value to at the beginning of a list.
+     * Adds a new list element at the beginning of a list.
      * 
      * @param list the list to which the value is added
      * @param value the value which is added to the list
