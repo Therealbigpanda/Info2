@@ -7,6 +7,8 @@ import u5a1.Lists;
 
 /**
  * Dynamically growing stack.
+ * 
+ * @author Andrea-Pascal Willi
  */
 public class Stack {
     private List list;
