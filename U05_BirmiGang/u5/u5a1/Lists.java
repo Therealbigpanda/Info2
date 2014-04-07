@@ -67,8 +67,7 @@ public class Lists {
     public static List last(List list) {
         if (list == null) return null;
         else if (list.next == null) return list;
-        else return last(list.next);
-        
+        else return last(list.next); 
     }
 
     /**
@@ -96,8 +95,7 @@ public class Lists {
     public static int valueAt(List list, int index) throws IndexOutOfBoundsException {
         if (list == null) throw new IndexOutOfBoundsException();
         if (index == 0) return list.value;
-        return valueAt(list.next, index-1);
-        
+        return valueAt(list.next, index-1);  
     }
 
     /**
