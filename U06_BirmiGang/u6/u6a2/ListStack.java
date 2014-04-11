@@ -6,62 +6,62 @@ import java.util.EmptyStackException;
  * Dynamically growing stack based on Linked Lists.
  */
 public class ListStack implements IStack {
+    private List list;
+    private int size;
 
-	/**
-	 * Creates a new stack
-	 */
-	public ListStack()
-	{
-		list = null;
-		size = 0;
-	}
+    /**
+     * Creates a new stack
+     */
+    public ListStack() {
+        list = null;
+        size = 0;
+    }
 
-	public String toString() 
-	{
-		StringBuffer buf = new StringBuffer("[");
-		for(List lst=list; lst !=null; lst=lst.next) {
-			buf.append(lst.value);
-			if (lst.next != null) buf.append(", ");
-		}
-		buf.append("]");
-		return buf.toString();
-	}
-	
-	public void push(int number)
-	{
-		list = new List(number, list);
-		size += 1;
-	}
-	
-	public int pop() throws EmptyStackException 
-	{
-		if (list == null) throw new EmptyStackException();
-		int res = list.value;
-		list = list.next;
-		size -= 1;
-		return res;
-	}
-	
-	public int peek() throws EmptyStackException
-	{
-		if (list == null) throw new EmptyStackException();
-		return list.value;
-	}
+    @Override
+    public String toString() {
+        StringBuilder buf = new StringBuilder("[");
+        for (List lst = list; lst != null; lst = lst.next) {
+            buf.append(lst.value);
+            if (lst.next != null) {
+                buf.append(", ");
+            }
+        }
+        buf.append("]");
+        return buf.toString();
+    }
 
-	public int size() 
-	{
-		return size;
-	}
+    @Override
+    public void push(int number) {
+        list = new List(number, list);
+        size += 1;
+    }
 
-	class List {
-		List(int value, List next)
-		{
-			this.value = value;
-			this.next = next;
-		}
-		int value;
-		List next;
-	}
-	private List list;
-	private int size;
+    @Override
+    public int pop() throws EmptyStackException {
+        if (list == null) {
+            throw new EmptyStackException();
+        }
+        int res = list.value;
+        list = list.next;
+        size -= 1;
+        return res;
+    }
+
+    @Override
+    public int peek() throws EmptyStackException {
+        if (list == null) {
+            throw new EmptyStackException();
+        }
+        return list.value;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public boolean empty() {
+        return size == 0;
+    }  
 }
