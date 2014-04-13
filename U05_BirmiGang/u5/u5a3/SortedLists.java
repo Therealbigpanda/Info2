@@ -20,9 +20,8 @@ public class SortedLists {
      */
     public static List insertSorted(List list, int value) {
         if (list == null) return new List(value, null);
-        if (list.value > value) return new List(value, list);
-
-        list.next = insertSorted(list.next, value);
+        if (list.value < value) list.next = insertSorted(list.next, value);
+        else return new List(value, list);
         return list;
     }
 
