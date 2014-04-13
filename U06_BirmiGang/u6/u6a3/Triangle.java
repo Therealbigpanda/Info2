@@ -1,7 +1,6 @@
 package u6a3;
 
 public class Triangle extends GeometricObject {
-
     private final int base;
     private final int height;
 

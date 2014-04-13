@@ -1,7 +1,6 @@
 package u6a3;
 
 public class Rectangle extends GeometricObject {
-
     private final int a;
     private final int b;
 
