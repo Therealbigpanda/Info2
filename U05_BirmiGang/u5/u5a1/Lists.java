@@ -16,7 +16,6 @@ public class Lists {
      * @return a comma-separated list of the list values
      */
     public static String toString(List list) {
-        
         if (list == null) return "null";
 
         StringBuilder buf = new StringBuilder();
