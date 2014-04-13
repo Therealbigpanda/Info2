@@ -19,9 +19,8 @@ public class SortedLists {
      * @return
      */
     public static List insertSorted(List list, int value) {
-        if (list == null) return new List(value, null);
-        if (list.value < value) list.next = insertSorted(list.next, value);
-        else return new List(value, list);
+        if (list == null || list.value > value) return new List(value, list);
+        list.next = insertSorted(list.next, value);
         return list;
     }
 
