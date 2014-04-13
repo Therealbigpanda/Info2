@@ -5,6 +5,7 @@ public interface IListUtils {
     /**
      * Returns a string representation of the list.
      *
+     * @param list
      * @return a comma-separated list of the list values
      */
     public String toString(GenericList list);

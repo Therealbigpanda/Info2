@@ -11,6 +11,6 @@ public class ListUtilsFactory {
      * @return an ILists instance
      */
     public static IListUtils create() {
-
+        return new ListUtils();
     }
 }
