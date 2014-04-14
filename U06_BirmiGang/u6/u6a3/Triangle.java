@@ -1,6 +1,7 @@
 package u6a3;
 
 public class Triangle extends GeometricObject {
+
     private final int base;
     private final int height;
 
@@ -11,7 +12,7 @@ public class Triangle extends GeometricObject {
 
     @Override
     public int area() {
-        return base*height/2;
+        return base * height / 2;
     }
 
     public Triangle(int base, int height) {

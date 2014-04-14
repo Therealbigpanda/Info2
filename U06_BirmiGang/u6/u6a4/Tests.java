@@ -23,7 +23,7 @@ public class Tests {
         long listTotal = 0;
         long chunkedTotal = 0;
 
-        System.out.println("Size\tListStack\tChunkedStack");
+        System.out.println("Size\t\tListStack\tChunkedStack");
 
         for (int max = START; max < MAX; max += 10000) {
             long time1 = System.currentTimeMillis();
@@ -48,7 +48,7 @@ public class Tests {
 
             long time3 = System.currentTimeMillis();
 
-            System.out.println(max + "\t" + (time2 - time1) + "\t" + (time3 - time2));
+            System.out.println(max + "\t\t" + (time2 - time1) + "\t\t" + (time3 - time2));
 
             listTotal += (time2 - time1);
             chunkedTotal += (time3 - time2);

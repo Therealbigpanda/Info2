@@ -1,6 +1,7 @@
 package u6a3;
 
 public class Rectangle extends GeometricObject {
+
     private final int a;
     private final int b;
 
@@ -11,7 +12,7 @@ public class Rectangle extends GeometricObject {
 
     @Override
     public int area() {
-        return a*b;
+        return a * b;
     }
 
     public Rectangle(int base, int height) {
