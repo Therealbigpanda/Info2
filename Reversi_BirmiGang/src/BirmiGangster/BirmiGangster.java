@@ -42,7 +42,7 @@ public class BirmiGangster implements ReversiPlayer{
         if (playerColor == GameBoard.GREEN) oponentColor = GameBoard.RED;
         else oponentColor = GameBoard.GREEN;
         //start returning before running out of time
-        if(timeFraction < 500) return null;
+        if(timeFraction < 50) return null;
         
         Move bestMove = new Move();
         if (playerColor == MY_COLOR) bestMove.difference = -65;
