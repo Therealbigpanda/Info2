@@ -1,6 +1,5 @@
 package u7a3;
 
-
 import java.io.*;
 import reversi.*;
 

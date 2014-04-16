@@ -11,3 +11,21 @@ id=TestGame time=1397687026220 new game
 id=TestGame time=1397687026223 red=u7a3.HumanPlayer green=u7a3.HumanPlayer
 id=TestGame time=1397687026392 initialized
 id=TestGame time=1397687028268 quit button pressed
+id=TestGame time=1397687093809 new game
+id=TestGame time=1397687093811 red=u7a3.HumanPlayer green=u7a3.HumanPlayer
+id=TestGame time=1397687093974 initialized
+id=TestGame time=1397687100299 quit button pressed
+id=TestGame time=1397687304467 new game
+id=TestGame time=1397687304471 red=u7a3.HumanPlayer green=u7a3.HumanPlayer
+id=TestGame time=1397687304635 initialized
+id=TestGame time=1397687320177 new game
+id=TestGame time=1397687320180 red=u7a3.HumanPlayer green=u7a3.HumanPlayer
+id=TestGame time=1397687320319 initialized
+id=TestGame time=1397687321683 quit button pressed
+id=TestGame time=1397687334820 new game
+id=TestGame time=1397687334823 red=u7a3.HumanPlayer green=u7a3.HumanPlayer
+id=TestGame time=1397687334986 initialized
+id=TestGame time=1397687346557 Redmove=6,6
+id=TestGame time=1397687356964 Greenmove=5,6
+id=TestGame time=1397687371321 quit button pressed
+id=TestGame time=1397687372628 quit button pressed
