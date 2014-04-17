@@ -4,7 +4,9 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>U07_BirmiGang</name>
-            <source-roots/>
+            <source-roots>
+                <root id="src.src.dir" name="Source Packages"/>
+            </source-roots>
             <test-roots>
                 <root id="test.u7.dir" name="Test Packages"/>
             </test-roots>
