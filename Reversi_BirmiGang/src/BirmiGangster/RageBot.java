@@ -30,20 +30,24 @@ public class RageBot implements ReversiPlayer{
     public Coordinates nextMove(GameBoard gb) {
         Coordinates returnValue = null;
         Stack possible = possibleCoords(gb, MY_COLOR);
-        
         Random randomGenerator = new Random();
+        System.out.println("Number of Moves: "+possible.size());
         while (!possible.empty()){
+            int b = randomGenerator.nextInt(possible.size());
+            System.out.println("size: "+possible.size());
             returnValue = (Coordinates)possible.pop();
-            if(randomGenerator.nextInt(5)<4) break;
+            System.out.println("pop: "+b);
+            if(b==0) break;
         }
         return returnValue;
     }
     
     private Stack possibleCoords(GameBoard gb, int playerColor){
          Stack returnStack = new Stack();
-         for(int x = 0; x < gb.getSize(); x++){
-            for(int y = 0; y < gb.getSize(); y++){
-                Coordinates coords = new Coordinates(x,y);
+         Coordinates coords;
+         for(int x = 1; x <= gb.getSize(); x++){
+            for(int y = 1; y <= gb.getSize(); y++){
+                coords = new Coordinates(x,y);
                 if(gb.checkMove(playerColor, coords)) returnStack.push(coords);
             }
         }
