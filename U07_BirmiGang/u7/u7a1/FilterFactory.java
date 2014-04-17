@@ -10,6 +10,6 @@ public class FilterFactory {
 	 */
 	public static IFilter create()
 	{
-
+            return new Filter();
 	}
 }
