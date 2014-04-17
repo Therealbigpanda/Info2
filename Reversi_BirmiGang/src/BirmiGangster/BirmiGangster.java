@@ -34,7 +34,7 @@ public class BirmiGangster implements ReversiPlayer{
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        return bestMove(gb, 5000, MY_COLOR).coords;
+        return bestMove(gb, TIME_LIMIT, MY_COLOR).coords;
     }
     
     private Move bestMove(GameBoard gb, long timeFraction, int playerColor){
