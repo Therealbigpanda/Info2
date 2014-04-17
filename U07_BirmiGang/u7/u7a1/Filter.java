@@ -11,11 +11,13 @@ public class Filter implements IFilter {
     @Override
     public ArrayList filterRaw(ArrayList groups) {
         ArrayList returnList = new ArrayList();
-        
-        for(Object i : groups) {
-            for(Object j: (ArrayList)i)
-                if(((Student)j).getPoints() >= criteria/100*maxNumberofPoints)
-                    returnList.add((Student)j);
+
+        for (Object i : groups) {
+            for (Object j : (ArrayList) i) {
+                if (((Student) j).getPoints() >= criteria / 100 * maxNumberofPoints) {
+                    returnList.add((Student) j);
+                }
+            }
         }
         return returnList;
     }
@@ -23,13 +25,14 @@ public class Filter implements IFilter {
     @Override
     public ArrayList<Student> filterGeneric(ArrayList<ArrayList<Student>> groups) {
         ArrayList<Student> returnList = new ArrayList();
-        
-        for(ArrayList<Student> i : groups) {
-            for(Student j : i) {
-                if (j.getPoints() >= criteria/100*maxNumberofPoints)
+
+        for (ArrayList<Student> i : groups) {
+            for (Student j : i) {
+                if (j.getPoints() >= criteria / 100 * maxNumberofPoints) {
                     returnList.add(j);
-            }      
+                }
+            }
         }
         return returnList;
-    }      
+    }
 }
