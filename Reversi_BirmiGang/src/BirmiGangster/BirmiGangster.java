@@ -34,22 +34,26 @@ public class BirmiGangster implements ReversiPlayer{
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        return bestMove(gb, TIME_LIMIT, MY_COLOR).coords;
+        return bestMove(gb, 5000, MY_COLOR).coords;
     }
     
     private Move bestMove(GameBoard gb, long timeFraction, int playerColor){
         int oponentColor;
         if (playerColor == GameBoard.GREEN) oponentColor = GameBoard.RED;
         else oponentColor = GameBoard.GREEN;
-        //start returning before running out of time
-        if(timeFraction < 50) return null;
         
         Move bestMove = new Move();
+
+        
+        //start returning before running out of time
+        if(timeFraction < 1) return null;
+        
         if (playerColor == MY_COLOR) bestMove.difference = -65;
         else bestMove.difference = 65;
         
         Stack possibleCoords = possibleCoords(gb, playerColor);
         int numberOfMoves = possibleCoords.size();
+        
         while (!possibleCoords.empty()){
             Coordinates coords = (Coordinates)possibleCoords.pop();
             GameBoard cloneGB = gb.clone();
@@ -57,40 +61,27 @@ public class BirmiGangster implements ReversiPlayer{
             else continue;
             Move moveResult = bestMove(cloneGB, timeFraction/(numberOfMoves),oponentColor);
             
-            if (playerColor == MY_COLOR){
-                /*
-                if(moveResult != null){
-                    if(moveResult.difference > bestMove.difference) {
-                        bestMove.difference = moveResult.difference;
-                        bestMove.coords = coords;
-            System.out.println("I");
-                    }*/
-                if(moveResult == null){
-                    moveResult = new Move();
-                    moveResult.difference = cloneGB.countStones(MY_COLOR) - cloneGB.countStones(OPONENTS_COLOR);
             
-                    System.out.println(bestMove.difference +" " + moveResult.difference);
-                }
-                if(moveResult.difference > bestMove.difference) {
+            if(moveResult == null){
+                    moveResult = bestMove(cloneGB, timeFraction/(numberOfMoves),playerColor);
+                    if(moveResult == null){
+                        moveResult = new Move();
+                        moveResult.difference = cloneGB.countStones(MY_COLOR)-cloneGB.countStones(OPONENTS_COLOR);
+                    }
+             }
+            
+            if (playerColor == MY_COLOR){
+                if(moveResult.difference >= bestMove.difference) {
                     bestMove.difference = moveResult.difference;
                     bestMove.coords = coords;
-            System.out.println("I");
-            }
                 }
+             }
                         
-                 
             else {
-                if(moveResult == null){
-                    moveResult = new Move();
-                    moveResult.difference = cloneGB.countStones(MY_COLOR) - cloneGB.countStones(OPONENTS_COLOR);
-                    System.out.println(bestMove.difference +" " + moveResult.difference);
-                }
-                if(moveResult.difference < bestMove.difference) {
+                if(moveResult.difference <= bestMove.difference) {
                     bestMove.difference = moveResult.difference;
                     bestMove.coords = coords;
-            System.out.println("I");
                 }
-               
             }
         }
        
@@ -103,8 +94,7 @@ public class BirmiGangster implements ReversiPlayer{
          for(int x = 1; x <= gb.getSize(); x++){
             for(int y = 1; y <= gb.getSize(); y++){
                 Coordinates coords = new Coordinates(x,y);
-                if(gb.checkMove(playerColor, coords)) {returnStack.push(coords);
-                System.out.println("player:"+playerColor + " x:"+x+", y:"+y);}
+                if(gb.checkMove(playerColor, coords)) returnStack.push(coords);
             }
         }
         return returnStack;
