@@ -19,7 +19,6 @@ public class TestClass {
     public static void main(String[] args) {
 
         File file = new File("reversilog");
-        String filepath = file.getAbsolutePath();
 
         if (file.delete()) {
             System.out.println(file.getName() + " is deleted!");
@@ -34,7 +33,7 @@ public class TestClass {
                 //do nothing
             }
         }
-        Path path = FileSystems.getDefault().getPath(filepath);
+        Path path = FileSystems.getDefault().getPath(file.getAbsolutePath());
         List<String> stringList;
 
         int redWins = 0;
