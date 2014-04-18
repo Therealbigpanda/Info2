@@ -23,6 +23,7 @@ public class BirmiGangster implements ReversiPlayer{
     private long TIME_LIMIT;
     private int MY_COLOR;
     private int OPONENTS_COLOR;
+    private int depth;
     @Override
     public void initialize(int i, long l) {
         TIME_LIMIT = l;
@@ -34,19 +35,24 @@ public class BirmiGangster implements ReversiPlayer{
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        return bestMove(gb, TIME_LIMIT, MY_COLOR).coords;
+        Coordinates returnValue = bestMove(gb, TIME_LIMIT, MY_COLOR).coords;
+        return returnValue;
     }
     
     private Move bestMove(GameBoard gb, long timeFraction, int playerColor){
+        //System.out.println(depth);
+        depth++;
         int oponentColor;
         if (playerColor == GameBoard.GREEN) oponentColor = GameBoard.RED;
         else oponentColor = GameBoard.GREEN;
         
         Move bestMove = new Move();
-
         
         //start returning before running out of time
-        if(timeFraction < 1) return null;
+        if(timeFraction < 1) {
+            depth --;
+            return null;
+        }
         
         if (playerColor == MY_COLOR) bestMove.difference = -65;
         else bestMove.difference = 65;
@@ -85,7 +91,7 @@ public class BirmiGangster implements ReversiPlayer{
             }
         }
        
-        
+        depth --;
         return bestMove;
     }
     

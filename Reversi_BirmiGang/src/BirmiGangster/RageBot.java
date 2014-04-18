@@ -31,12 +31,9 @@ public class RageBot implements ReversiPlayer{
         Coordinates returnValue = null;
         Stack possible = possibleCoords(gb, MY_COLOR);
         Random randomGenerator = new Random();
-        System.out.println("Number of Moves: "+possible.size());
         while (!possible.empty()){
             int b = randomGenerator.nextInt(possible.size());
-            System.out.println("size: "+possible.size());
             returnValue = (Coordinates)possible.pop();
-            System.out.println("pop: "+b);
             if(b==0) break;
         }
         return returnValue;
