@@ -23,8 +23,8 @@ public class Filter implements IFilter {
     }
 
     @Override
-    public ArrayList<Student> filterGeneric(ArrayList<ArrayList<Student>> groups) {
-        ArrayList<Student> returnList = new ArrayList();
+    public ArrayList filterGeneric(ArrayList<ArrayList<Student>> groups) {
+        ArrayList returnList = new ArrayList();
 
         for (ArrayList<Student> i : groups) {
             for (Student j : i) {
