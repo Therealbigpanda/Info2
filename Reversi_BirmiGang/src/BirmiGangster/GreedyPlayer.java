@@ -14,8 +14,6 @@ public class GreedyPlayer implements ReversiPlayer {
 
     int myColor;
     
-    public GreedyPlayer() {}
-
     @Override
     public void initialize(int myColor, long timeLimit) {
         this.myColor = myColor;
