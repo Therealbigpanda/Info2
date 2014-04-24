@@ -1,5 +1,6 @@
 package u8a3;
 
+import java.util.Stack;
 import reversi.*;
 
 /**
@@ -11,14 +12,42 @@ import reversi.*;
  */
 public class GreedyPlayer implements ReversiPlayer {
 
+    int myColor;
+
     @Override
     public void initialize(int myColor, long timeLimit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.myColor = myColor;
     }
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Stack<Coordinates> possibleMoves = possibleMoves(gb);
+
+        int nPlayerStones = gb.countStones(myColor);
+        Coordinates bestMove = null;
+
+        for (Coordinates i : possibleMoves) {
+            GameBoard testGb = gb.clone();
+            testGb.checkMove(myColor, i);
+            testGb.makeMove(myColor, i);
+            if (testGb.countStones(myColor) > nPlayerStones) {
+                nPlayerStones = testGb.countStones(myColor);
+                bestMove = i;
+            }
+        }
+        return bestMove;
     }
 
+    private Stack possibleMoves(GameBoard gb) {
+        Stack returnStack = new Stack();
+        for (int x = 1; x <= gb.getSize(); x++) {
+            for (int y = 1; y <= gb.getSize(); y++) {
+                Coordinates coords = new Coordinates(x, y);
+                if (gb.checkMove(myColor, coords)) {
+                    returnStack.push(coords);
+                }
+            }
+        }
+        return returnStack;
+    }
 }
