@@ -24,7 +24,7 @@ public class RandomPlayer implements ReversiPlayer {
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        Stack<Coordinates> possibleMoves = Utils.possibleMoves(gb, myColor);
+        Stack<Coordinates> possibleMoves = BotUtils.possibleMoves(gb, myColor);
         if (possibleMoves.size() > 0) {
             return possibleMoves.get(randomInt.nextInt(possibleMoves.size()));
         }
