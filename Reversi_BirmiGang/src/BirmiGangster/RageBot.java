@@ -29,7 +29,7 @@ public class RageBot implements ReversiPlayer{
     @Override
     public Coordinates nextMove(GameBoard gb) {
         Coordinates returnValue = null;
-        Stack possible = possibleCoords(gb, MY_COLOR);
+        Stack possible = Utils.possibleMoves(gb, MY_COLOR);
         Random randomGenerator = new Random();
         while (!possible.empty()){
             int b = randomGenerator.nextInt(possible.size());
@@ -38,16 +38,4 @@ public class RageBot implements ReversiPlayer{
         }
         return returnValue;
     }
-    
-    private Stack possibleCoords(GameBoard gb, int playerColor){
-         Stack returnStack = new Stack();
-         Coordinates coords;
-         for(int x = 1; x <= gb.getSize(); x++){
-            for(int y = 1; y <= gb.getSize(); y++){
-                coords = new Coordinates(x,y);
-                if(gb.checkMove(playerColor, coords)) returnStack.push(coords);
-            }
-        }
-        return returnStack;
-     }
 }

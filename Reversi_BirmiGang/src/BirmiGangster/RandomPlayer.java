@@ -24,24 +24,10 @@ public class RandomPlayer implements ReversiPlayer {
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        Stack<Coordinates> possibleMoves = possibleMoves(gb);
+        Stack<Coordinates> possibleMoves = Utils.possibleMoves(gb, myColor);
         if (possibleMoves.size() > 0) {
             return possibleMoves.get(randomInt.nextInt(possibleMoves.size()));
         }
         return null;
-    }
-
-    private Stack<Coordinates> possibleMoves(GameBoard gb) {
-        Stack possibleMoves = new Stack();
-        Coordinates coords;
-
-        for (int x = 1; x <= gb.getSize(); ++x) {
-            for (int y = 1; y <= gb.getSize(); ++y) {
-                if (gb.checkMove(myColor, coords = new Coordinates(x, y))) {
-                    possibleMoves.push(coords);
-                }
-            }
-        }
-        return possibleMoves;
     }
 }

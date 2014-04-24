@@ -21,7 +21,7 @@ public class GreedyPlayer implements ReversiPlayer {
 
     @Override
     public Coordinates nextMove(GameBoard gb) {
-        Stack<Coordinates> possibleMoves = possibleMoves(gb);
+        Stack<Coordinates> possibleMoves = Utils.possibleMoves(gb, myColor);
 
         int nPlayerStones = gb.countStones(myColor);
         Coordinates bestMove = null;
@@ -36,18 +36,5 @@ public class GreedyPlayer implements ReversiPlayer {
             }   
         }
         return bestMove;
-    }
-
-    private Stack possibleMoves(GameBoard gb) {
-        Stack returnStack = new Stack();
-        for (int x = 1; x <= gb.getSize(); x++) {
-            for (int y = 1; y <= gb.getSize(); y++) {
-                Coordinates coords = new Coordinates(x, y);
-                if (gb.checkMove(myColor, coords)) {
-                    returnStack.push(coords);
-                }
-            }
-        }
-        return returnStack;
-    }
+    }  
 }
