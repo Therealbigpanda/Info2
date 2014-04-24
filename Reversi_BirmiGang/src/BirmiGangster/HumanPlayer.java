@@ -1,158 +1,135 @@
 package BirmiGangster;
 
-
 import java.io.*;
 import reversi.*;
 
-
 /**
- * HumanPlayer implementiert auf einfache Art das Interface für einen
- * Reversi-Spieler ({@link reversi.ReversiPlayer}). Anstatt einen Zug zu
- * berechnen, fordert <code>HumanPlayer</code> den Benutzer auf, einen Zug
- * über die Konsole einzugeben.
- * 
+ * HumanPlayer implementiert auf einfache Art das Interface für einen Reversi-Spieler
+ * ({@link reversi.ReversiPlayer}). Anstatt einen Zug zu berechnen, fordert <code>HumanPlayer</code>
+ * den Benutzer auf, einen Zug über die Konsole einzugeben.
+ *
  * @see reversi.ReversiPlayer
  */
-public class HumanPlayer implements ReversiPlayer
-{
-	/**
-	 * Die Farbe des Spielers.
-	 */
-	private int color = 0;
+public class HumanPlayer implements ReversiPlayer {
 
-	/**
-	 * Konstante, die vom Benutzer eigegeben werden kann, um zu passen.
-	 */
-	private final static String PASSEN = "p";
+    /**
+     * Die Farbe des Spielers.
+     */
+    private int color = 0;
 
-	/**
-	 * Konstruktor, der bei der Gründung eines HumanPlayer eine Meldung auf den
-	 * Bildschirm ausgibt.
-	 */
-	public HumanPlayer()
-	{
-		System.out.println("HumanPlayer erstellt.");
-	}
+    /**
+     * Konstante, die vom Benutzer eigegeben werden kann, um zu passen.
+     */
+    private final static String PASSEN = "p";
 
-	/**
-	 * Speichert die Farbe und den Timeout-Wert in Instanzvariablen ab. Diese
-	 * Methode wird vor Beginn des Spiels von {@link Arena} aufgerufen.
-	 * 
-	 * @see reversi.ReversiPlayer
-	 */
-	public void initialize(int color, long timeout)
-	{
-		this.color = color;
-		if (color == GameBoard.RED)
-		{
-			System.out.println("HumanPlayer ist Spieler RED.");
-		}
-		else if (color == GameBoard.GREEN)
-		{
-			System.out.println("HumanPlayer ist Spieler GREEN.");
-		}
-	}
+    /**
+     * Konstruktor, der bei der Gründung eines HumanPlayer eine Meldung auf den Bildschirm ausgibt.
+     */
+    public HumanPlayer() {
+        System.out.println("HumanPlayer erstellt.");
+    }
 
-	/**
-	 * Macht einen Zug für den HumanPlayer, indem der Benutzer zur Eingabe eines
-	 * Zuges aufgefordert wird. Diese Methode wird von {@link reversi.Arena}
-	 * abwechselnd aufgerufen.
-	 * 
-	 * @see reversi.ReversiPlayer
-	 * @return Der Zug des HumanPlayers.
-	 */
-	public Coordinates nextMove(GameBoard gb)
-	{
+    /**
+     * Speichert die Farbe und den Timeout-Wert in Instanzvariablen ab. Diese Methode wird vor
+     * Beginn des Spiels von {@link Arena} aufgerufen.
+     *
+     * @see reversi.ReversiPlayer
+     */
+    public void initialize(int color, long timeout) {
+        this.color = color;
+        if (color == GameBoard.RED) {
+            System.out.println("HumanPlayer ist Spieler RED.");
+        } else if (color == GameBoard.GREEN) {
+            System.out.println("HumanPlayer ist Spieler GREEN.");
+        }
+    }
 
-		Coordinates coord = null;
+    /**
+     * Macht einen Zug für den HumanPlayer, indem der Benutzer zur Eingabe eines Zuges aufgefordert
+     * wird. Diese Methode wird von {@link reversi.Arena} abwechselnd aufgerufen.
+     *
+     * @see reversi.ReversiPlayer
+     * @return Der Zug des HumanPlayers.
+     */
+    public Coordinates nextMove(GameBoard gb) {
 
-		System.out.print("HumanPlayer ");
-		if (color == GameBoard.RED)
-		{
-			System.out.print("(RED)");
-		}
-		else if (color == GameBoard.GREEN)
-		{
-			System.out.print("(GREEN)");
-		}
-		System.out
-				.print(", gib deinen Zug ein (passen mit '" + PASSEN + "'): ");
-		coord = readMoveFromKeyboard();
+        Coordinates coord = null;
 
-		return coord;
-	} 
+        System.out.print("HumanPlayer ");
+        if (color == GameBoard.RED) {
+            System.out.print("(RED)");
+        } else if (color == GameBoard.GREEN) {
+            System.out.print("(GREEN)");
+        }
+        System.out
+                .print(", gib deinen Zug ein (passen mit '" + PASSEN + "'): ");
+        coord = readMoveFromKeyboard();
 
-	/**
-	 * Liest einen Zug vom Benutzer ein. Gültige Eingaben sind entweder ein
-	 * Koordinatenpaar bestehend aus Zeile und Spalte (z.B. '6d') oder ein 'p',
-	 * um zu passen falls kein Zug möglich ist. Methode wiederholt die
-	 * Eingabeaufforderung so lange bis eine gültige Eingabe gemacht wurde.
-	 * 
-	 * @return Gibt die eingelesenen Koordinaten zurück, bzw. <code>null</code>,
-	 *         wenn der Benutzer "Passen" ausgewählt hat.
-	 */
-	public static Coordinates readMoveFromKeyboard()
-	{
-		Coordinates result = null;
-		while (result == null)
-		{
-			System.out.print(">");
-			String str = null;
-			int row = 0, column = 0;
+        return coord;
+    }
 
-			BufferedReader d = new BufferedReader(new InputStreamReader(
-					System.in));
+    /**
+     * Liest einen Zug vom Benutzer ein. Gültige Eingaben sind entweder ein Koordinatenpaar
+     * bestehend aus Zeile und Spalte (z.B. '6d') oder ein 'p', um zu passen falls kein Zug möglich
+     * ist. Methode wiederholt die Eingabeaufforderung so lange bis eine gültige Eingabe gemacht
+     * wurde.
+     *
+     * @return Gibt die eingelesenen Koordinaten zurück, bzw. <code>null</code>, wenn der Benutzer
+     * "Passen" ausgewählt hat.
+     */
+    public static Coordinates readMoveFromKeyboard() {
+        Coordinates result = null;
+        while (result == null) {
+            System.out.print(">");
+            String str = null;
+            int row = 0, column = 0;
 
-			// String einlesen
-			try
-			{
-				str = d.readLine();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
+            BufferedReader d = new BufferedReader(new InputStreamReader(
+                    System.in));
 
-			// gelesenen String sezieren
-			str.trim();
-			str = str.toLowerCase();
+            // String einlesen
+            try {
+                str = d.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // gelesenen String sezieren
+            str.trim();
+            str = str.toLowerCase();
 
 			// falls der Zug "passen" bedeutet, beende Schleife (gib 'null'
-			// zurück)
-			if (str.equals(PASSEN))
-			{
-				System.out.println("Zug 'PASSEN' wurde ausgewaehlt.");
-				break;
-			}
+            // zurück)
+            if (str.equals(PASSEN)) {
+                System.out.println("Zug 'PASSEN' wurde ausgewaehlt.");
+                break;
+            }
 
-			if (str.length() != 2)
-			{
-				System.out.println("Ungueltige Eingabe: mehr als 2 Zeichen.");
-				continue;
-			}
+            if (str.length() != 2) {
+                System.out.println("Ungueltige Eingabe: mehr als 2 Zeichen.");
+                continue;
+            }
 
-			// ist das erste Zeichen eine Ziffer zwischen 0..8?
-			row = (int) (str.charAt(0)) - (int) '0';
-			// Zeilen 0 und 9 sind ungueltig
-			if (row < 1 || row > 8)
-			{
-				System.out.println("Ungueltige Eingabe: die Zeilennummer muss "
-						+ "zwischen 1 und 8 liegen.");
-				continue;
-			}
+            // ist das erste Zeichen eine Ziffer zwischen 0..8?
+            row = (int) (str.charAt(0)) - (int) '0';
+            // Zeilen 0 und 9 sind ungueltig
+            if (row < 1 || row > 8) {
+                System.out.println("Ungueltige Eingabe: die Zeilennummer muss "
+                        + "zwischen 1 und 8 liegen.");
+                continue;
+            }
 
-			// ist das zweite Zeichen ein Buchstabe zwischen a..h?
-			column = (int) (str.charAt(1)) - (int) 'a' + 1;
+            // ist das zweite Zeichen ein Buchstabe zwischen a..h?
+            column = (int) (str.charAt(1)) - (int) 'a' + 1;
 
-			if (column < 1 || column > 8)
-			{
-				System.out.println("Ungueltige Eingabe: die Spaltenummer muss "
-						+ "zwischen A und H liegen.");
-				continue;
-			}
+            if (column < 1 || column > 8) {
+                System.out.println("Ungueltige Eingabe: die Spaltenummer muss "
+                        + "zwischen A und H liegen.");
+                continue;
+            }
 
-			result = new Coordinates(row, column);
-		}
-		return result;
-	} // end readMoveFromKeyboard()
+            result = new Coordinates(row, column);
+        }
+        return result;
+    } // end readMoveFromKeyboard()
 }

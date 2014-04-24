@@ -5,10 +5,9 @@ import reversi.*;
 import java.util.Random;
 
 /**
- * HumanPlayer implementiert auf einfache Art das Interface für einen
- * Reversi-Spieler ({@link reversi.ReversiPlayer}), der unter allen möglichen Zügen 
- * einen zufälligen wählt.
- * 
+ * RandomPlayer implementiert auf einfache Art das Interface für einen
+ * {@link reversi.ReversiPlayer}, der unter allen möglichen Zügen einen zufälligen wählt.
+ *
  * @see reversi.ReversiPlayer
  */
 public class RandomPlayer implements ReversiPlayer {
