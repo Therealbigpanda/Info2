@@ -34,7 +34,9 @@ public class BinarySearchTreeUtils<T> implements IBinarySearchTreeUtils {
     @Override
     public boolean hasOneChild(BinarySearchTree tree) {
         return (tree.left == null) ^ (tree.right == null); //XOR
-    }
+    }/*The documentation states " ... only one child..." Are children from children also your children? 
+        beause when I started I did for ( 1+ ((tree.left == null) ^ (tree.right == null)) = 2) { return 1;}
+        I know sounds stupid*/
 
     @Override
     public ArrayList preOrder(BinarySearchTree tree) {
